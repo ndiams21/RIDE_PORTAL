@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FACULTY PORTAL</title>
+    <link rel="stylesheet" href="css\index.css">
+    <link rel="icon" type="image/x-icon" href="\imgs\logo(1).ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="login_panel panel" id="login_panel">
+        <img src="imgs\logo.png">
+        <p>Welcome to the Faculty Portal. Please login to proceed.</p>
+        <div class="input_container">
+            <input id="username_login"  name="username_login" placeholder="Username">
+            <div class="password-container">
+                <input id="password_login" placeholder="Password" type="password">
+                <button type="button" id="togglePassword_login" class="toggle-password">
+                    <i class="fa fa-eye"></i>
+                </button>
+            </div>
+        </div>
+        
+
+        <div class="ctrl_btns">
+
+            <button id="login_btn" onclick="login_account(this)">Login</button>
+            <button id="sign_up_btn" onclick="display_signup(this)">Sign up</button>
+        </div>
+    </div>
+
+    <div class="signup_panel panel" id="signup_panel" style="display: none;">
+        <!-- Add this to your HTML -->
+        <div id="loadingIcon" class="loading-icon"></div>
+
+        <img src="imgs\logo.png">
+        <p>Create your account</p>
+        <input id="username_signup" placeholder="Username">
+        <input id="email_signup" placeholder="Email">
+        <div class="password-container">
+            <input id="password_signup" placeholder="Password" type="password">
+            <button type="button" id="togglePassword_signup" class="toggle-password">
+                <i class="fa fa-eye"></i>
+            </button>
+        </div>
+        
+
+
+
+
+        <!-- <button id="send_code_btn" onclick="insert_account(this)">Send verification code</button> -->
+        <button id="send_code_btn" onclick="send_verification(this)">Send verification code</button>
+    </div>
+
+    <div class="email_verification_panel panel" id="email_verification_panel"  style="display: none;">
+        <img src="imgs\logo.png">
+        <p>A verification code has been sent to your email</p>
+        <div class="code-inputs">
+            <input type="text" id="digit1" maxlength="1" oninput="moveToNext(this, 'digit2')" onkeydown="moveToPrev(event, 'digit1')">
+            <input type="text" id="digit2" maxlength="1" oninput="moveToNext(this, 'digit3')" onkeydown="moveToPrev(event, 'digit2', 'digit1')">
+            <input type="text" id="digit3" maxlength="1" oninput="moveToNext(this, 'digit4')" onkeydown="moveToPrev(event, 'digit3', 'digit2')">
+            <input type="text" id="digit4" maxlength="1" oninput="moveToNext(this, 'digit5')" onkeydown="moveToPrev(event, 'digit4', 'digit3')">
+            <input type="text" id="digit5" maxlength="1" oninput="moveToNext(this, 'digit6')" onkeydown="moveToPrev(event, 'digit5', 'digit4')">
+            <input type="text" id="digit6" maxlength="1" oninput="moveToNext(this)" onkeydown="moveToPrev(event, 'digit6', 'digit5')">
+        </div>
+        <button id="verify_code_btn" onclick="verifyCode()">Verify code</button>
+        <p id="message"></p>
+    </div>
+    
+    <div class="user_details_panel panel" id="user_details_panel" style="display: none;">
+        <img src="imgs\logo.png">
+        <p>Please provide the following.</p>
+        <input placeholder="Name" id="name_input">
+        <input placeholder="Office" id="office_input">
+        <input placeholder="Position" id="position_input">  
+        <!-- <input placeholder=""> -->
+        <button id="insert_account_btn" onclick="insert_verified_account(this)">Create account</button>
+    </div>
+
+
+    <video class="video-background" autoplay muted loop>
+        <source src="\vids\RIDE_Vid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+</body>
+<script src="js\index.js"></script>
+
+</html>
