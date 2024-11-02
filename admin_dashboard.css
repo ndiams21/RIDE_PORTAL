@@ -1,0 +1,287 @@
+/* Global box-sizing to include padding and borders in element's total width */
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* General mobile-friendly adjustments */
+body, html {
+    height: 100%; /* Make sure the body and html are 100% height */
+    margin: 0;
+}
+
+/* Main container layout */
+main {
+    height: 100%;
+}
+
+/* Container */
+.container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    height: 100vh; /* Full viewport height */
+}
+
+/* Header */
+header {
+    background: #50b3a2;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+h1 {
+    margin: 0px;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    margin-top: 15px;
+    flex: 0 0 auto;
+}
+
+.tabs button {
+    flex: 1;
+    padding: 10px;
+    cursor: pointer;
+    background: #ddd;
+    border: none;
+    transition: background 0.3s;
+}
+
+.tabs button:hover {
+    background: #ccc;
+}
+
+.tabs .active-tab {
+    background: #50b3a2;
+    color: #fff;
+}
+
+/* Table container */
+.table-container {
+    /* border: 1px solid red; */
+    flex: 1;
+    overflow-y: auto;
+    margin-top: 15px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.table-container.active {
+    display: block;
+}
+
+/* Loading text */
+.loading {
+    text-align: center;
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+td {
+    text-align: center;
+}
+
+/* Button container */
+.button-container {
+    display: flex;
+    justify-content: center;
+    /* margin: 20px 0; */
+}
+
+.button-container button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.disabled_button {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+.enabled_button {
+    background: #50b3a2;
+    color: #fff;
+    cursor: pointer;
+}
+
+.enabled_button:hover {
+    background: #45a29e;
+}
+
+/* Responsive table rows */
+table.dataTable tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+table.dataTable tbody tr,
+table.dataTable tbody td {
+    transition: background-color 0.3s ease;
+}
+
+table.dataTable tbody tr.selected {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+/* Form styles */
+#addRecordForm, #modify_record_form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    display: none;
+}
+
+.add_form input, .modify_form input, .add_form select, .modify_form select, .add_form textarea, .modify_form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.add_form label, .modify_form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.add_form button, .modify_form button {
+    margin: 10px 0;
+    padding: 10px 20px;
+    background: #50b3a2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.add_form button:hover, .modify_form button:hover {
+    background: #45a29e;
+}
+
+.add_form .error-message, .modify_form .error-message {
+    color: #ff0000;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+/* Search bar */
+.search-container {
+    margin-bottom: 20px;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Bottom section */
+.bottom {
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Odd and even row styling */
+table.dataTable tbody tr:nth-child(odd) {
+    background-color: #e7e7e7;
+}
+
+table.dataTable tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+/* Hover and selected styles */
+table.dataTable tbody tr:hover {
+    background-color: #cdcdcd;
+    cursor: pointer;
+}
+
+table.dataTable tbody tr.selected {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+h3 {
+    text-align: center;
+}
+
+th:hover {
+    background-color: #ccc;
+}
+
+.dataTables_wrapper {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+img {
+    height: 100px;
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+    header {
+        padding: 10px 0;
+        font-size: 18px;
+    }
+
+    .tabs {
+        flex-direction: column; /* Stack tabs vertically on smaller screens */
+    }
+
+    .tabs button {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .table-container {
+        margin-top: 10px;
+        padding: 10px;
+    }
+
+    .button-container {
+        flex-direction: column; /* Stack buttons vertically */
+        margin: 10px 0;
+    }
+
+    .button-container button {
+        margin: 10px 0;
+        width: 100%; /* Full width buttons on mobile */
+    }
+
+    .add_form input, .modify_form input, .add_form select, .modify_form select, .add_form textarea, .modify_form textarea {
+        font-size: 14px; /* Slightly smaller font for mobile */
+        padding: 8px;
+    }
+
+    .search-container input {
+        font-size: 14px;
+        padding: 8px;
+    }
+    /* Bottom section */
+    
+}
